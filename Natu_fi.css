@@ -1,0 +1,55 @@
+*{
+    margin:0px;
+    padding:0px;
+}
+/*design navbar */
+.navbar{
+    width:100%;
+}
+/*design jumbottron*/
+.card{
+    background-image:url(Image/image_background_site.jpg)
+}
+/*design jumbottron*/
+.texte_acceuil{
+    color:black;
+    font-size:100px;
+    text-shadow:1px 1px 15px #000000;
+}
+.paragraphe_acceuil{
+    font-size:40px;
+    color:black;
+    text-shadow:1px 1px 15px #000000;
+}
+.img-fluid{
+    max-width:100%;
+    height:auto;
+}
+/*end design banner*/
+
+
+
+/*form search */
+.form-control:focus{
+    border-color:green;
+    box-shadow:0 0 0 0.2rem rgba(222, 228, 222, 0.3);
+}
+/* end form search */
+
+
+
+/*design grille */
+.single_produit{
+    border:1px solid #ccc;
+    box-shadow: 0 0 5px #333333;
+}
+.single_produit:hover{
+    transform: translateZ(20px);
+    box-shadow:0 0 50px #333333;
+    transition: 1s;
+}
+/*end design grille*/
+
+.row{
+    margin-top: 10px;
+}
