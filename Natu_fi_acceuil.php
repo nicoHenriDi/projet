@@ -130,6 +130,7 @@ $panier = new panier($connexion_produit); //new panier objet
 
 <!-- Grille des produits-->
 
+<!--coucou it's work-->
    <!--Floating button -->
 
    <div class="d-flex">
