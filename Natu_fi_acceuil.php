@@ -16,20 +16,20 @@ $panier = new panier($connexion_produit); //new panier objet
  <!--MBD design-->
 
     <!-- Font Awesome -->
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
-      rel="stylesheet"
-    />
-    <!-- Google Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-      rel="stylesheet"
-    />
-    <!-- MDB -->
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.2/mdb.min.css"
-      rel="stylesheet"
-    />
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+  rel="stylesheet"
+/>
+<!-- Google Fonts -->
+<link
+  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+  rel="stylesheet"
+/>
+<!-- MDB -->
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.2/mdb.min.css"
+  rel="stylesheet"
+/>
  <!--MBD design-->
 
  <!--Bootstrap Design-->
@@ -90,17 +90,18 @@ $panier = new panier($connexion_produit); //new panier objet
       ?>
         <div class="col-sm-6 col-xs-6 col-md-4 col-lg-3 py-2">
               <div class="single_produit py-8 " >
-          <a class="ripple" href="Info_produit.php?id=<?php echo($données["id"])?>">
-          <img src="Image/<?php echo($données["image_produit"]) ;?>" class="card-img-top" alt="cerise"> </a>
+         <!--lien vers detail produit--> <a class="ripple" href="Info_produit.php?id=<?php echo($données["id"])?>">
+          <!--image produit--><img src="Image/<?php echo($données["image_produit"]) ;?>" class="card-img-top" alt="cerise"> </a>
                           <div class="card-body">
                                   
-                                  <h4><i><strong><?php echo($données["nom_produit"]);?></strong></i></h4>
-                                  <h4><i><strong><?php echo(number_format($données["prix"],2)." "."FCFA");?></strong></i></h4>
+                               <!--Nom produit-->   <h4><i><strong><?php echo($données["nom_produit"]);?></strong></i></h4>
+                                <!--prix produit-->  <h4><i><strong><?php echo(number_format($données["prix"],2)." "."FCFA");?></strong></i></h4>
                                   <div class="d-flex justify-content-between align-items-center">
+                                    <!--bouton ajout au panier-->
                                     <div class="btn-group">
                                     <a href="ajout_panier.php?id=<?php echo($données["id"])?>"><button class="btn bg-success text-white btn-sm">Ajouter au panier</button></a>
-
                                     </div>
+                                    <!--bouton ajout au panier-->
                                   </div>
               </div>
               <!-- Begin Footer card-->
@@ -130,22 +131,9 @@ $panier = new panier($connexion_produit); //new panier objet
 
 <!-- Grille des produits-->
 
-<!--coucou it's work-->
-   <!--Floating button -->
-
-   <div class="d-flex">
-            <a href="panier.php">
-              <!--rendre le bouton panier circulaire et le faire flotté à droite-->
-              <button type="button"  class="btn btn-warning btn-lg  btn-floating">
-                    <i class="fas fa-shopping-basket"><span class="badge rounded-pill badge-notification bg-danger"><?php echo($panier->compteur())?></span></i>
-                </button>
-            </a>
-        </div>
-        
-        <!--Floating button -->
 
 <!--porte folio du site -->
-
+          
 <!--porte folio du site -->
 
 

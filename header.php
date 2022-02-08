@@ -69,17 +69,31 @@
           </Button>
         </form>
     <!--Barre de recherche-->
+
     <ul class="navbar-nav ml-auto nav-flex-icons">
+      <!--twitter-->
       <li class="nav-item text-white">
         <a class="nav-link waves-effect waves-light text-white">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
+      <!--twitter-->
+
+      <!--google-->
       <li class="nav-item ">
         <a class="nav-link waves-effect waves-light text-white">
           <i class="fab fa-google-plus-g"></i>
         </a>
       </li>
+      <!--google-->
+
+      <!--panier-->
+            <a class="nav-link waves-effect waves-light text-white" href="panier.php" >
+                <i class="fas fa-shopping-basket"><span class="badge rounded-pill badge-notification bg-danger"><?php echo($panier->compteur())?></span></i>
+            </a>
+      <!--panier-->
+
+      <!--user dropdown-->
       <li class="nav-item dropdown ">
         <a
             class="nav-link dropdown-toggle text-white"

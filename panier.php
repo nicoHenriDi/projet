@@ -211,7 +211,7 @@ $ids_implode = implode("','",$ids);
                             <td class=" text-center"colspan="2"><b>
                                 <h6>
                                     <?php
-                                        echo(number_format($panier->total(),2,',',' ')." "."Fcfa");
+                                        echo(number_format($panier->total(),2,',',' ')." "."Fcfa");//récupére le total des produits et l'affiche
                                     ?>
                                 </h6>
                                 <b></td>
