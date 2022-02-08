@@ -13,7 +13,7 @@ if(isset($_GET["id"])){
         die("this products doesn't existe");
     }else{
         //ajout panier
-    $panier ->ajout_panier($produit_ajouter['id'][0]);
+   $panier ->ajout_panier($produit_ajouter['id'][0]);
     header("location:Natu_fi_acceuil.php");
     //echo("le produit à bien était enregistré dans votre panier <a href='javascript:history.back()'>retour page accueil</a>");
     }

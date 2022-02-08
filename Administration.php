@@ -1,4 +1,9 @@
-<?php session_start()?>
+<?php 
+session_start();
+include "connexion_base_de_données.php";
+include("panier_class.php");//inclusion page panie_class
+$panier = new panier($connexion_produit); //new panier objet
+?>
 <!Doctype html>
 <html lang="eng">
 
@@ -7,10 +12,6 @@
  <title>Natu'fi</title>
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
- <?php 
-  include "connexion_base_de_données.php";
-?>
 
   <!-- Font Awesome -->
   <link

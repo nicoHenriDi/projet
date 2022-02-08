@@ -99,7 +99,7 @@ $panier = new panier($connexion_produit); //new panier objet
                                   <div class="d-flex justify-content-between align-items-center">
                                     <!--bouton ajout au panier-->
                                     <div class="btn-group">
-                                    <a href="ajout_panier.php?id=<?php echo($données["id"])?>"><button class="btn bg-success text-white btn-sm">Ajouter au panier</button></a>
+                                    <a class="addPanier" href="ajout_panier.php?id=<?php echo($données["id"])?>"><button class="btn bg-success text-white btn-sm">Ajouter au panier</button></a>
                                     </div>
                                     <!--bouton ajout au panier-->
                                   </div>
@@ -197,7 +197,7 @@ $panier = new panier($connexion_produit); //new panier objet
 <!--Jerry CDN-->
 
           <!--my javascript-->
-  <script src="../mon_site/js/Natu_fi.js"></script>
+    <script src="../mon_site/Natu_fi.js"></script>
           <!--my javascript-->
 </body>
 </html>
