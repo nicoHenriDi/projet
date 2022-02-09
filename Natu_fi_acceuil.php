@@ -48,7 +48,8 @@ $panier = new panier($connexion_produit); //new panier objet
 
 <body>
 <?php include "header.php"?>
-
+</br>
+</br>
 <!--banner-->
 <!-- Jumbotron -->
 <div class="container-fluid">
@@ -69,14 +70,16 @@ $panier = new panier($connexion_produit); //new panier objet
 <!-- Jumbotron -->
 <!--end banner-->
 
+<br/>
+<br/>
     <div class="container-fluid">
       <div class="row">
         <!--animé tout ça et aprés commencé le mode de payement-->
           <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 text-center align-middle">
             <img src="../mon_site/Image/arbre_without_backgound.png" style="width : 300px ; height : 300px;"/>
           </div>
-          <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 text-center align-middle">
-              <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, laudantium. Facere harum tenetur ratione perferendis ab eos, doloremque totam? Iusto placeat fugiat nemo pariatur cum ducimus distinctio ipsa ratione culpa.</h4>
+          <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6">
+              <h4 class="text-middle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, laudantium. Facere harum tenetur ratione perferendis ab eos, doloremque totam? Iusto placeat fugiat nemo pariatur cum ducimus distinctio ipsa ratione culpa.</h4>
           </div>
       </div>
     </div>
