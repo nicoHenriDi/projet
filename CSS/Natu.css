@@ -13,25 +13,21 @@
     height: 700px;
 }
 
-.Banane{
+.Avocat{
+    width : 400px;
     position:relative;
-    left:900px;
+    left: 780px;
     bottom:450px;
 }
 .Ananas{
     position:relative;
-    left:600px;
+    left:450px;
     bottom:850px;
 }
 .Fraise{
     position:relative;
-    left:30px;
-    bottom:50px;
-}
-.Orange{
-    position:relative;
-    right:250px;
-    bottom:130px;
+    left:150px;
+    bottom:250px;
 }
 
 
