@@ -7,8 +7,8 @@
     width:100%;
 }
 /*design jumbottron*/
-.card{
-    background-image:url(Image/image_background_site.jpg)
+#banner{
+    background-image:url(/Image/image_background_site.jpg);
 }
 /*design jumbottron*/
 .texte_acceuil{

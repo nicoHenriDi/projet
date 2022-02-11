@@ -1,0 +1,48 @@
+*{
+    margin:0px;
+    padding:0px;
+}
+/*design navbar */
+.navbar{
+    width:100%;
+}
+/*design jumbottron*/
+.banner{
+   background: #0C176B;
+    width: 100%;
+    height: 700px;
+}
+
+.Banane{
+    position:relative;
+    left:900px;
+    bottom:450px;
+}
+.Ananas{
+    position:relative;
+    left:600px;
+    bottom:850px;
+}
+.Fraise{
+    position:relative;
+    left:30px;
+    bottom:50px;
+}
+.Orange{
+    position:relative;
+    right:250px;
+    bottom:130px;
+}
+
+
+/*design grille */
+.single_produit{
+    border:1px solid #ccc;
+    box-shadow: 0 0 5px #333333;
+}
+.single_produit:hover{
+    transform: translateZ(20px);
+    box-shadow:0 0 50px #333333;
+    transition: 1s;
+}
+/*end design grille*/

@@ -13,6 +13,11 @@ $panier = new panier($connexion_produit); //new panier objet
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
+ <!-- My design-->
+ <link rel="stylesheet"  type="text/css" href="../mon_site/CSS/Natu.css">
+ <!--My design -->
+
  <!--MBD design-->
 
     <!-- Font Awesome -->
@@ -37,11 +42,6 @@ $panier = new panier($connexion_produit); //new panier objet
   <!--Bootstrap Design-->
 
 
-<!-- My design-->
- <link rel="stylesheet" href="../mon_site/Natu_fi.css">
- <!--My design -->
-
-
 
 
 </head>
@@ -51,16 +51,29 @@ $panier = new panier($connexion_produit); //new panier objet
 </br>
 </br>
 <!--banner-->
+
+      <div class="banner">
+          <h5 class="h5 green-text font-italic text-white "><i class="fas fa-store-alt"></i>Le Marché autrement</h5>
+          <h1 class="card-title my-4 py-2 font-italic text-white display-1">Natu'fi</h1>
+          <h1 class="text-white">Des Fruits frais </br> sans sortir de chez vous</h1>
+
+                <img  class="Banane img-fluid" src="../mon_site/Image/Banane.png" />
+                <img  class="Orange img-fluid" src="../mon_site/Image/orange.png" />
+                <img  class="Fraise img-fluid" src="../mon_site/Image/fraise.png" />
+                <img  class="Ananas img-fluid" src="../mon_site/Image/ananas.png" />
+      </div>
+
+
 <!-- Jumbotron -->
 <div class="container-fluid">
-      <div class="card  card-fluid ">
+      <div id="banner" class="card  card-fluid" >
         <div class="text-white text-center rgba-stylish-strong py-5 px-4">
           <div class="py-5">
 
             <!-- Content -->
-            <h5 class="h5 green-text font-italic text-success"><i class="fas fa-store-alt"></i>Le Marché autrement</h5>
-            <h1 class="card-title my-4 py-2 font-italic">Natu'fi</h1>
-            <p class="mb-4 pb-2 px-md-5 mx-md-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur obcaecati vero aliquid libero doloribus ad, unde tempora maiores, ullam, modi qui quidem minima debitis perferendis vitae cumque et quo impedit.</p>
+            
+
+            
             <a class="btn bg-success text-white" href="Administration.php"><i class="fas fa-user px-md-2"></i>Connexion</a>
 
           </div>
@@ -83,6 +96,9 @@ $panier = new panier($connexion_produit); //new panier objet
           </div>
       </div>
     </div>
+
+    
+
 
 <!--header grille-->
   <div class="container">
