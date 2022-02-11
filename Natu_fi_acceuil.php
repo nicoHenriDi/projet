@@ -4,7 +4,7 @@ include "connexion_base_de_données.php"; // pour la connexion à la base de don
  include "compte_rebours_misàjour.php";   // pour spécifier le nombre de jour depuis la dernière mises à jour
 include("panier_class.php");//inclusion page panie_class
 $panier = new panier($connexion_produit); //new panier objet
- ?>
+?>
 <!Doctype html>
 <html lang="eng">
 <head>
@@ -61,27 +61,9 @@ $panier = new panier($connexion_produit); //new panier objet
 
                 <img  class="Avocat img-fluid" src="../mon_site/Image/avocat.png" />
                 <img  class="Fraise img-fluid" src="../mon_site/Image/fraise.png" />
-                <img  class="Ananas img-fluid" src="../mon_site/Image/ananas.png" />
+                <img class="Ananas img-fluid" src="../mon_site/Image/ananas.png" />
       </div>
 
-
-<!-- Jumbotron -->
-<div class="container-fluid">
-      <div id="banner" class="card  card-fluid" >
-        <div class="text-white text-center rgba-stylish-strong py-5 px-4">
-          <div class="py-5">
-
-            <!-- Content -->
-            
-
-            
-           
-
-          </div>
-        </div>
-      </div>
-</div>
-<!-- Jumbotron -->
 <!--end banner-->
 
 <br/>
