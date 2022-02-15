@@ -1,23 +1,43 @@
-<?php
-include "connexion_base_de_données.php";
-include "compte_rebours_misàjour.php";
+<?php 
+session_start();
+include "connexion_base_de_données.php"; // pour la connexion à la base de données
+ include "compte_rebours_misàjour.php";   // pour spécifier le nombre de jour depuis la dernière mises à jour
+include("panier_class.php");//inclusion page panie_class
+$panier = new panier($connexion_produit); //new panier objet
 ?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Info_produit</title>
-<!-- Font Awesome -->
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+
+<!--MBD design-->
+
+    <!-- Font Awesome -->
+    <link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+  rel="stylesheet"
+/>
 <!-- Google Fonts -->
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
-<!-- Bootstrap core CSS -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
-<!-- Material Design Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.0/css/mdb.min.css" rel="stylesheet">
+<link
+  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+  rel="stylesheet"
+/>
+<!-- MDB -->
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.2/mdb.min.css"
+  rel="stylesheet"
+/>
+ <!--MBD design-->
+
+<!--Bootstrap Design-->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<!--Bootstrap Design-->
+
+
 <!-- My design-->
- <link rel="stylesheet" href="Info_produit.css">
- <!--My design -->
+<link rel="stylesheet" href="Info_produit.css">
+<!--My design -->
 
 
  <!-- JQuery -->
@@ -86,5 +106,21 @@ include "compte_rebours_misàjour.php";
     <!--Begin Footer site-->
     <?php include "footer.php"?>
     <!--End Footer site-->
+
+    <!--Bootstrap jquery-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<!--Bootstrap jquery-->
+
+<!-- MDB jquery -->
+<script
+  type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.2/mdb.min.js"
+></script>
+<!-- MDB jquery -->
+
+<!--Jerry CDN-->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<!--Jerry CDN-->
+
 </body>
 </html>

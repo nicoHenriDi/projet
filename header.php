@@ -108,7 +108,6 @@
         <div class="dropdown-menu dropdown-menu-end"
           aria-labelledby="navbarDropdownMenuLink-333">
           <a class="dropdown-item" href="Administration.php">Mon compte</a>
-          <a class="dropdown-item" href="#">Another action</a>
           <a class="dropdown-item" href="#">Déconnexion</a>
         </div>
       </li>

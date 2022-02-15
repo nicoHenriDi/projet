@@ -53,15 +53,30 @@ $panier = new panier($connexion_produit); //new panier objet
 <!--banner-->
 
       <div class="banner">
-          <h5 class="h5 green-text font-italic text-white text-center" style="position : relative ; bottom:-20px ;"><i class="fas fa-store-alt"></i>Le Marché autrement</h5>
-          <h1 class="card-title my-4 py-2  text-white display-1" style="position : relative ; bottom:-90px ; left:50px ;width:500px"><b>Natu'fi</b></h1>
-          <h1 class="text-white"  style="position : relative ; bottom:-100px ; left:50px ; width:500px">Des Fruits frais </br> sans sortir de chez vous</h1>
-          <a class="btn bg-success text-white " href="Administration.php" style="position : relative ; bottom:150px ; left:150px">
-            <i class="fas fa-user px-md-2"></i>Connexion</a>
-
-                <img  class="Avocat img-fluid" src="../mon_site/Image/avocat.png" />
-                <img  class="Fraise img-fluid" src="../mon_site/Image/fraise.png" />
-                <img class="Ananas img-fluid" src="../mon_site/Image/ananas.png" />
+              <div class="container-fluid w-100 h-75">
+                    <div class="row w-100 h-100 ">
+                    <h2 class="h5 font-italic text-white text-center" ><i class="fas fa-store-alt"></i>Le Marché autrement</h2>
+                      <div id="title-site" class="col-4 col-md-4 col-sm-4 col-lg-4 col-xl-4 h-100 text-center align-self-center">
+                          <h1  class="card-title my-4 py-2  text-white display-1" ><b>Natu'fi</b></h1>
+                          <h1 class="text-white">Des Fruits frais </br> sans sortir de chez vous</h1>
+                          <a class="btn bg-success text-white  " href="Administration.php">
+                            <i class="fas fa-user px-md-2"></i>Connexion</a>
+                      </div>
+                      <div class="col-8 col-md-8 col-sm-8 col-lg-8 col-xl-8 align-middle">
+                          <div class="row w-100 h-100 ">
+                                <div class="col col-md col-sm col-lg col-xl align-self-end">
+                                  <img class="Ananas img-fluid " src="../mon_site/Image/ananas.png" />
+                                </div>
+                                <div class="col col-md col-sm col-lg col-xl align-self-center">
+                                  <img  class="Fraise img-fluid " src="../mon_site/Image/fraise.png" />
+                                </div>
+                                <div class="col col-md col-sm col-lg col-xl align-self-start">
+                                  <img  class="Avocat img-fluid " src="../mon_site/Image/avocat.png" />
+                                </div>
+                          </div>        
+                      </div>
+                </div>
+              </div>
       </div>
 
 <!--end banner-->
