@@ -1,12 +1,11 @@
-
-// animation jquery icone avant footer
-
-$("#ajouter").fadeOut(800);
-$("#ajouter").fadeIn(800);
+$(function(){
 
 
-$("#Livraison").fadeOut(800);
-$("#Livraison").fadeIn(800);
+//Initialisation scrolling effect
+AOS.init();
+
+});
+
 
 
 

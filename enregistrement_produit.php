@@ -1,10 +1,16 @@
+<?php 
+session_start();
+include "connexion_base_de_données.php"; // pour la connexion à la base de données
+ include "compte_rebours_misàjour.php";   // pour spécifier le nombre de jour depuis la dernière mises à jour
+include("panier_class.php");//inclusion page panie_class
+$panier = new panier($connexion_produit); //new panier objet
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enregistrement produit</title>
-    <?php include "connexion_base_de_données.php" ?>
 
 <!--MBD design-->
 
