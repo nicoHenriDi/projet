@@ -6,12 +6,17 @@
 .navbar{
     width:100%;
 }
-/*design jumbottron*/
+/*design banner*/
 .banner{
    background: #0C176B;
     width: 100%;
     height: 700px;
 }
+
+.text-banner{
+    color:#0C176B;
+}
+
 
 
 

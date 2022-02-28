@@ -64,11 +64,13 @@ $panier = new panier($connexion_produit); //new panier objet
                         <div class="row w-100 h-100 ">
                           <div id="title-site" class="col-4 col-md-4 col-sm-4 col-lg-4 col-xl-4 h-100  align-self-center" data-aos="fade-right" data-aos-duration="3000">
                               <div class="circle"></div>
-                              <h1  class="card-title my-4 py-2   display-1" ><b>Natu'fi</b></h1>
-                              <h1 class="">Des Fruits frais </br> sans sortir de chez vous</h1>
+                              <div class="text-banner">
+                                  <h1  class="card-title my-4 py-2   display-1" ><i><b>Natu'fi</b></i></h1>
+                                  <h1 class=""><i><b>Des Fruits frais</b></i> </br> <i><b>sans sortir de chez vous</b></i></h1>
+                              </div>
                               <a class="btn bg-success text-white" href="Administration.php">
                                 <i class="fas fa-user px-md-2"></i>Connexion</a>
-                                <a class="btn bg-primary text-white" href="Administration.php">
+                                <a class="btn bg-primary text-white" href="Magasin.php">
                                 <i class="fas fa-store-alt"></i> voir le Magasin</a>
                           </div>
                           <div class="col-8 col-md-8 col-sm-8 col-lg-8 col-xl-8 align-middle">
@@ -163,6 +165,129 @@ $panier = new panier($connexion_produit); //new panier objet
         <!-- Grille des produits-->
 
 </section>
+
+<!--Slider Systéme-->
+
+<div class="container" >
+    <div class="row justify-content-md-center">
+          <div class="col-md-8">
+                  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                              <div class="carousel-item active">
+                                    <div class="row">
+                                        <?php
+                                          $reponse=$connexion_produit->query("SELECT * FROM produits");
+                                          while($données=$reponse->fetch()){
+                                        ?>
+                                          <div class="col-sm-6 col-xs-6 col-md-4 col-lg-3 py-2">
+                                                <div class="single_produit py-8 " >
+                                          <!--lien vers detail produit--> <a class="ripple" href="Info_produit.php?id=<?php echo($données["id"])?>">
+                                            <!--image produit--><img src="Image/<?php echo($données["image_produit"]) ;?>" class="card-img-top img-fluid" alt="<?php echo($données["nom_produit"]);?>"> </a>
+                                                            <div class="card-body">
+                                                                    
+                                                                <!--Nom produit-->   <h4><i><strong><?php echo($données["nom_produit"]);?></strong></i></h4>
+                                                                  <!--prix produit-->  <h4><i><strong><?php echo(number_format($données["prix"],2)." "."FCFA");?></strong></i></h4>
+                                                                    <div class="d-flex justify-content-between align-items-center">
+                                                                      <!--bouton ajout au panier-->
+                                                                      <div class="btn-group">
+                                                                      <a class="addPanier" href="ajout_panier.php?id=<?php echo($données["id"])?>"><button class="btn bg-success text-white btn-sm">Ajouter au panier</button></a>
+                                                                      </div>
+                                                                      <!--bouton ajout au panier-->
+                                                                    </div>
+                                                </div>
+                                                <!-- Begin Footer card-->
+                                                    <div class="card-footer text-muted text-center">
+                                                      <?php
+                                                                  $date =Datetime::createFromFormat("Y-m-d H:i:s",$données["Date_Enregistrement"])->format("Y-m-d");// defini la date strval permet de convertir n'importe quelle type de variable en chaine
+                                                                  $aujourdhui = Date("Y-m-d");
+                                                                  $nbr_jours = Nbre_Jour($date,$aujourdhui);
+                                                        if($nbr_jours>0){
+                                                          echo" depuis"." ".$nbr_jours." "."jours"; //$nbr_jours vient de la fonction Nbre_jour dans compte_rebours_misàjour.php
+                                                        }
+                                                        else{
+                                                          echo"Maintenant"; //$nbr_jours vient de la fonction Nbre_jour dans compte_rebours_misàjour.php
+                                                        }
+                                                        
+                                                      ?>
+                                                    </div>
+                                                <!--End Footer card-->
+                                                </div>
+                                            </div>
+                                            <?php
+                                            }
+                                            ?>
+                                        </div>                          
+                                </div>
+                          
+
+                                <div class="carousel-item">
+                                            <div class="row">
+                                                        <?php
+                                                      $reponse=$connexion_produit->query("SELECT * FROM produits");
+                                                      while($données=$reponse->fetch()){
+                                                    ?>
+                                                      <div class="col-sm-6 col-xs-6 col-md-4 col-lg-3 py-2">
+                                                            <div class="single_produit py-8 " >
+                                                      <!--lien vers detail produit--> <a class="ripple" href="Info_produit.php?id=<?php echo($données["id"])?>">
+                                                        <!--image produit--><img src="Image/<?php echo($données["image_produit"]) ;?>" class="card-img-top img-fluid" alt="<?php echo($données["nom_produit"]);?>"> </a>
+                                                                        <div class="card-body">
+                                                                                
+                                                                            <!--Nom produit-->   <h4><i><strong><?php echo($données["nom_produit"]);?></strong></i></h4>
+                                                                              <!--prix produit-->  <h4><i><strong><?php echo(number_format($données["prix"],2)." "."FCFA");?></strong></i></h4>
+                                                                                <div class="d-flex justify-content-between align-items-center">
+                                                                                  <!--bouton ajout au panier-->
+                                                                                  <div class="btn-group">
+                                                                                  <a class="addPanier" href="ajout_panier.php?id=<?php echo($données["id"])?>"><button class="btn bg-success text-white btn-sm">Ajouter au panier</button></a>
+                                                                                  </div>
+                                                                                  <!--bouton ajout au panier-->
+                                                                                </div>
+                                                            </div>
+                                                            <!-- Begin Footer card-->
+                                                                <div class="card-footer text-muted text-center">
+                                                                  <?php
+                                                                              $date =Datetime::createFromFormat("Y-m-d H:i:s",$données["Date_Enregistrement"])->format("Y-m-d");// defini la date strval permet de convertir n'importe quelle type de variable en chaine
+                                                                              $aujourdhui = Date("Y-m-d");
+                                                                              $nbr_jours = Nbre_Jour($date,$aujourdhui);
+                                                                    if($nbr_jours>0){
+                                                                      echo" depuis"." ".$nbr_jours." "."jours"; //$nbr_jours vient de la fonction Nbre_jour dans compte_rebours_misàjour.php
+                                                                    }
+                                                                    else{
+                                                                      echo"Maintenant"; //$nbr_jours vient de la fonction Nbre_jour dans compte_rebours_misàjour.php
+                                                                    }
+                                                                    
+                                                                  ?>
+                                                                </div>
+                                                            <!--End Footer card-->
+                                                            </div>
+                                                        </div>
+                                                        <?php
+                                                        }
+                                                        ?>
+                                              </div>
+                                  
+                                </div>
+
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+          </div>
+    </div>
+</div>
+
+
+<!--Slider Systéme-->
 
 <section  class="sticky">
         <div class="container-fluid h-100 px-4">

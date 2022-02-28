@@ -1,0 +1,34 @@
+*{
+    margin:0px;
+    padding:0px;
+}
+
+.conteneur-principale{
+    width: 100%;
+}
+.conteneur-secondaire{
+    width: 500px;
+    height: 1000px;
+}
+.conteneur-tertiaire{
+        width: 500px;
+        height: 1000px;
+}
+.conteneur{
+    width: 100%;
+}
+/*régler le positionnement des div puis faire le design*/
+
+
+
+/*design grille */
+.single_produit{
+    border:1px solid #ccc;
+    box-shadow: 0 0 5px #333333;
+}
+.single_produit:hover{
+    transform: translateZ(20px);
+    box-shadow:0 0 50px #333333;
+    transition: 1s;
+}
+/*end design grille*/
