@@ -45,16 +45,22 @@ $panier = new panier($connexion_produit); //new panier objet
 
 <?php include "header.php"?>
 
-    <!-- Card -->
-<div class="container col-md-8">
+<div class="container-fluid w-100">
+  <div class="row">
+    <div class="col-6 bg-success">
+
+    </div>
+    <div class="col-6">
+                     <!-- Card -->
+<div class="container col-md-8 h-100 w-100">
 <div class="card  mx-xl-5 py-5 ">
 
 <!-- begin Card body -->
-<div class="card-body">
+<div class="card-body h-75">
 
   <!-- Default form subscription -->
   <form method="POST" action="enregistrement_produit.php" enctype="multipart/form-data">
-    <p class="h3 text-center py-4">Enregistrement</p>
+    <p class="h3 text-center ">Enregistrement</p>
 
     <!-- Default input name produit -->
     <label for="Nom_produit" class="grey-text font-weight-light">Nom du produit</label>
@@ -74,12 +80,21 @@ $panier = new panier($connexion_produit); //new panier objet
 
     <label for="prix" class="grey-text font-weight-light">prix</label>
     <input type="text" name="prix" class="form-control border  border-success">
-
-    <label for="produit_image" class="grey-text font-weight-light">Choix Image</label>
-    <input type="file" name="produit_image" class="form-control-file border border-success">
+    </br>
+    <select class="form-select form-select-sm border-success font-weight-light" aria-label=".form-select-sm example" name="Famille">
+      <option value="Fruits à Noyau">Fruits à Noyau</option>
+      <option value="Fruits à Pépin">Fruits à Pépin</option>
+      <option value="Baies et Fruits">Baies et Fruits</option>
+      <option value="Agrumes">Agrumes</option>
+      <option value="Fruits à coque">Fruits à coque</option>
+      <option value="Fruits Exotiques">Fruits Exotiques</option>
+    </select>
+    </br>
+    <label for="produit_image" class="grey-text font-weight-light">Choisir une Image</label>
+    <input type="file" name="produit_image" class="form-control">
 
     <div class="text-center py-4 mt-3">
-      <button class="btn btn-outline-green" type="submit" name="submit_ajout">Envoyer</button>
+      <button class="btn btn-outline-green bg-success text-white" type="submit" name="submit_ajout">Envoyer</button>
     </div>
   </form>
   <!-- Default form subscription -->
@@ -97,11 +112,16 @@ $panier = new panier($connexion_produit); //new panier objet
       $upload="Image/".$file;
       move_uploaded_file($_FILES["produit_image"]["tmp_name"],$upload);
       
-      $insertion=$connexion_produit->prepare("INSERT INTO produits(nom_produit,description_produit,prix,code_produit,image_produit) VALUES(?,?,?,?,?)") OR die(print_r($connexion->errorInfo()));
-      $insertion->execute(array($_POST["Nom_produit"],$_POST["description"],$_POST["prix"],$_POST["code_produit"],$file));
+      $insertion=$connexion_produit->prepare("INSERT INTO produits(nom_produit,description_produit,prix,code_produit,image_produit,Famille) VALUES(?,?,?,?,?,?)") OR die(print_r($connexion->errorInfo()));
+      $insertion->execute(array($_POST["Nom_produit"],$_POST["description"],$_POST["prix"],$_POST["code_produit"],$file,$_POST["Famille"]));
     }
     //Fin insertion base de donnée
   ?>
+    </div>
+  </div>
+</div>
+
+   
   <?php include "footer.php"?>
   
 <!--Bootstrap jquery-->
@@ -114,6 +134,7 @@ $panier = new panier($connexion_produit); //new panier objet
   src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.2/mdb.min.js"
 ></script>
 <!-- MDB jquery -->
+
   </body>
 
 </html>

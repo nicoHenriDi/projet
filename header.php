@@ -1,10 +1,6 @@
-   <!-- entête du site -->
-
-   
-
 
 <!--Navbar -->
-<nav class="mb-1 navbar fixed-top navbar-expand-lg navbar-dark bg-success " style="position: fixed ;padding-top:0px;">
+<nav class="mb-1 navbar fixed-top navbar-expand-lg navbar-dark bg-success shadow-5-strong px-4" style="position: fixed ;padding-top:0px;">
   <a class="navbar-brand" href="Natu_fi_acceuil.php"><i>Natu'fi</i></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
     aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
@@ -55,7 +51,7 @@
         </li>
     </ul>
 
-    <!--Barre de recherche-->
+    <!--Barre de recherche
         <form class="d-flex input-group w-50">
           <input
             type="search"
@@ -68,9 +64,10 @@
             <i class="fas fa-search"></i>
           </Button>
         </form>
-    <!--Barre de recherche-->
+    Barre de recherche-->
 
-    <ul class="navbar-nav ml-auto nav-flex-icons">
+  </div>
+  <ul class="navbar-nav ml-auto nav-flex-icons">
       <!--twitter-->
       <li class="nav-item text-white">
         <a class="nav-link waves-effect waves-light text-white">
@@ -112,6 +109,5 @@
         </div>
       </li>
     </ul>
-  </div>
 </nav>
 <!--/.Navbar -->

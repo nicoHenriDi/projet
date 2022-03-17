@@ -51,10 +51,8 @@ $panier = new panier($connexion_produit); //new panier objet
 
 </head>
 
-<body>
+<body style="background: rgb(246, 244, 244);">
 <?php include "header.php"?>
-</br>
-</br>
 
 <section>
         <!--banner-->
@@ -111,66 +109,13 @@ $panier = new panier($connexion_produit); //new panier objet
 
 <section>
 
-          <!-- Grille des produits-->
-        <div class="grille_image"  data-aos="fade-up"
+            <!--Slider Systéme-->
+
+<div class="container"  data-aos="fade-up"
           data-aos-easing="linear"
-          data-aos-duration="1500"> 
-            <div class="container">
-              <div class="row">
-              <?php
-                $reponse=$connexion_produit->query("SELECT * FROM produits");
-                while($données=$reponse->fetch()){
-              ?>
-                <div class="col-sm-6 col-xs-6 col-md-4 col-lg-3 py-2">
-                      <div class="single_produit py-8 " >
-                <!--lien vers detail produit--> <a class="ripple" href="Info_produit.php?id=<?php echo($données["id"])?>">
-                  <!--image produit--><img src="Image/<?php echo($données["image_produit"]) ;?>" class="card-img-top img-fluid" alt="<?php echo($données["nom_produit"]);?>"> </a>
-                                  <div class="card-body">
-                                          
-                                      <!--Nom produit-->   <h4><i><strong><?php echo($données["nom_produit"]);?></strong></i></h4>
-                                        <!--prix produit-->  <h4><i><strong><?php echo(number_format($données["prix"],2)." "."FCFA");?></strong></i></h4>
-                                          <div class="d-flex justify-content-between align-items-center">
-                                            <!--bouton ajout au panier-->
-                                            <div class="btn-group">
-                                            <a class="addPanier" href="ajout_panier.php?id=<?php echo($données["id"])?>"><button class="btn bg-success text-white btn-sm">Ajouter au panier</button></a>
-                                            </div>
-                                            <!--bouton ajout au panier-->
-                                          </div>
-                      </div>
-                      <!-- Begin Footer card-->
-                          <div class="card-footer text-muted text-center">
-                            <?php
-                                        $date =Datetime::createFromFormat("Y-m-d H:i:s",$données["Date_Enregistrement"])->format("Y-m-d");// defini la date strval permet de convertir n'importe quelle type de variable en chaine
-                                        $aujourdhui = Date("Y-m-d");
-                                        $nbr_jours = Nbre_Jour($date,$aujourdhui);
-                              if($nbr_jours>0){
-                                echo" depuis"." ".$nbr_jours." "."jours"; //$nbr_jours vient de la fonction Nbre_jour dans compte_rebours_misàjour.php
-                              }
-                              else{
-                                echo"Maintenant"; //$nbr_jours vient de la fonction Nbre_jour dans compte_rebours_misàjour.php
-                              }
-                              
-                            ?>
-                          </div>
-                      <!--End Footer card-->
-                      </div>
-                  </div>
-                  <?php
-                  }
-                  ?>
-              </div>
-            </div>
-        </div>
-
-        <!-- Grille des produits-->
-
-</section>
-
-<!--Slider Systéme-->
-
-<div class="container" >
+          data-aos-duration="1500" >
     <div class="row justify-content-md-center">
-          <div class="col-md-8">
+          <div class="col-md-12">
                   <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-indicators">
                       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -185,7 +130,7 @@ $panier = new panier($connexion_produit); //new panier objet
                                           while($données=$reponse->fetch()){
                                         ?>
                                           <div class="col-sm-6 col-xs-6 col-md-4 col-lg-3 py-2">
-                                                <div class="single_produit py-8 " >
+                                                <div class="single_produit py-8 bg-white " >
                                           <!--lien vers detail produit--> <a class="ripple" href="Info_produit.php?id=<?php echo($données["id"])?>">
                                             <!--image produit--><img src="Image/<?php echo($données["image_produit"]) ;?>" class="card-img-top img-fluid" alt="<?php echo($données["nom_produit"]);?>"> </a>
                                                             <div class="card-body">
@@ -232,7 +177,7 @@ $panier = new panier($connexion_produit); //new panier objet
                                                       while($données=$reponse->fetch()){
                                                     ?>
                                                       <div class="col-sm-6 col-xs-6 col-md-4 col-lg-3 py-2">
-                                                            <div class="single_produit py-8 " >
+                                                            <div class="single_produit py-8 bg-white" >
                                                       <!--lien vers detail produit--> <a class="ripple" href="Info_produit.php?id=<?php echo($données["id"])?>">
                                                         <!--image produit--><img src="Image/<?php echo($données["image_produit"]) ;?>" class="card-img-top img-fluid" alt="<?php echo($données["nom_produit"]);?>"> </a>
                                                                         <div class="card-body">
@@ -288,6 +233,10 @@ $panier = new panier($connexion_produit); //new panier objet
 
 
 <!--Slider Systéme-->
+
+
+</section>
+
 
 <section  class="sticky">
         <div class="container-fluid h-100 px-4">

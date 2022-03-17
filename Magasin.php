@@ -46,57 +46,99 @@ $panier = new panier($connexion_produit); //new panier objet
   <!--Bootstrap Design-->
 
 </head>
-<body>
+<body style="background: rgb(246, 244, 244);">
 
 <?php include "header.php"?>
 
 <br/>
 <br/>
 <div class="conteneur">
-    <div id="conteneur-principale" class="container-fluid w-100" >
+    <div id="conteneur-principale" class="container-fluid w-100 h-100" >
         <div class="row">
             <div class="conteneur-secondaire col-3 col-md-3">
+                <h5 id="Famille" class="">Quelques Familles de fruit</h5>
+                <!--Faire de nouveaux enregistrement dans la base de données avec un champs en plus famille de fruit -->
+                    <ul>
 
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                            <label class="form-check-label" for="defaultCheck1">
+                            Fruits à Noyau
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                            <label class="form-check-label" for="defaultCheck1">
+                            Fruits à Pépin
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                            <label class="form-check-label" for="defaultCheck1">
+                            Baies et Fruits
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                            <label class="form-check-label" for="defaultCheck1">
+                            Agrumes
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                            <label class="form-check-label" for="defaultCheck1">
+                            Fruits à Coque
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                            <label class="form-check-label" for="defaultCheck1">
+                            Fruits Exotiques
+                            </label>
+                          </div>
+                          
+                    </ul>
             </div>
 
-            <div class="conteneur-tertiaire col-9 col-md-9">
+            <div class="conteneur-tertiaire col-9 col-md-9  h-100">
 
               <div class="row">
-                  <div class="col-6 col-md-6">
-                        <!-- Example single danger button -->
-                        <div class="btn-group">
-                          <button type="button" class="btn btn-success dropdown-toggle"
-                           data-toggle="dropdown" aria-haspopup="true" 
-                           aria-expanded="false">
-                           <i class="fa fa-filter" aria-hidden="true"></i>
-                            Filtre
-                          </button>
-                          <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Separated link</a>
-                          </div>
-                        </div>
-                        <h1></h1>
+                  <div class="col-6 col-md-6 h-25">
                   </div>
                   <div class="col-6 col-md-6 text-end">
-                      <h1>Recherche</h1>
+                                    <!--Barre de recherche-->
+                                      <form class="d-flex input-group m-5 w-75">
+                                        <input
+                                          type="search"
+                                          class="form-control rounded"
+                                          placeholder="Search"
+                                          aria-label="Search"
+                                          aria-describedby="search-addon"
+                                          id="search-user"
+                                          value=""
+                                        />
+                                        <Button class="input-group-text border-0 btn-outline-success" id="search-addon">
+                                          <i class="fas fa-search"></i>
+                                        </Button>
+                                        <div style="margin-top:20px">
+                                              <div id="result-research"></div>
+                                        </div>
+                                      </form>
+                                  <!--Barre de recherche-->
                   </div>
               </div>
                                  <!-- Grille des produits-->
                           <div class="grille_image"> 
-                              <div class="container">
-                                <div class="row">
+                              <div class="container-fluid ">
+                                <div class="row row-cols-3 g-2">
                                 <?php
                                   $reponse=$connexion_produit->query("SELECT * FROM produits");
                                   while($données=$reponse->fetch()){
                                 ?>
-                                  <div class="col-sm-6 col-xs-6 col-md-4 col-lg-3 py-2">
-                                        <div class="single_produit py-8 " >
-                                  <!--lien vers detail produit--> <a class="ripple" href="Info_produit.php?id=<?php echo($données["id"])?>">
-                                    <!--image produit--><img src="Image/<?php echo($données["image_produit"]) ;?>" class="card-img-top img-fluid" alt="<?php echo($données["nom_produit"]);?>"> </a>
+                                  <div class="col-sm-2 col-xs-2 col-md-2 col-lg-3 py-2 h-100 p-3 ">
+                                        <div class="single_produit py-8 bg-white " >
+                                                                        <!--lien vers detail produit--> <a class="ripple" href="Info_produit.php?id=<?php echo($données["id"])?>">
+                                                                          <!--image produit--><img src="Image/<?php echo($données["image_produit"]) ;?>" class="card-img-top img-fluid" alt="<?php echo($données["nom_produit"]);?>" > </a>
                                                     <div class="card-body">
                                                             
                                                         <!--Nom produit-->   <h4><i><strong><?php echo($données["nom_produit"]);?></strong></i></h4>
@@ -140,13 +182,14 @@ $panier = new panier($connexion_produit); //new panier objet
     </div>
 </div>
 
+<?php include "footer.php" ?> <!--Footer-->
 
 <!--Jerry CDN-->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <!--Jerry CDN-->
 
           <!--my javascript-->
-    <script type="text/javascript" src="../mon_site/Natu_fi.js"></script>
+    <script type="text/javascript" src="../mon_site/js/Magasin.js"></script>
           <!--my javascript-->
 
 <!--Bootstrap jquery-->
@@ -160,18 +203,14 @@ $panier = new panier($connexion_produit); //new panier objet
 ></script>
 <!-- MDB jquery -->
 
-<!--greenSock-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
-<!--greenSock-->
-
-<!--ScrollMagic-->
-<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js"></script>
-<!--ScrollMagic-->
 
 <!--AOS js-->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <!--AOS js-->
+
+<!--Ajax-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<!--Ajax-->
+
 </body>
 </html>

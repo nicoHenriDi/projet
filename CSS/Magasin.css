@@ -1,9 +1,10 @@
 *{
     margin:0px;
     padding:0px;
+
 }
 
-.conteneur-principale{
+#conteneur-principale{
     width: 100%;
 }
 .conteneur-secondaire{
@@ -32,3 +33,14 @@
     transition: 1s;
 }
 /*end design grille*/
+
+#Famille{
+    padding:10px;
+    margin-top:20px;
+    margin:10px
+}
+
+/*classe image pour les produits*/
+
+
+
