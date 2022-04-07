@@ -43,4 +43,10 @@
 /*classe image pour les produits*/
 
 
+#loading{
+    text-align: center;
+    background: url('../Image/Spinner-5.gif') no-repeat center;
+    height: 100px;
+}
+
 

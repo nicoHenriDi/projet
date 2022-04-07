@@ -1,3 +1,4 @@
+
 <?php 
 session_start();
 include "connexion_base_de_données.php";
@@ -9,7 +10,7 @@ $panier = new panier($connexion_produit); //new panier objet
 
 <head>
 
- <title>Natu'fi</title>
+ <title>Connexion</title>
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -41,19 +42,18 @@ $panier = new panier($connexion_produit); //new panier objet
 
 
 </head>
+
+
 <body>
-<?php include "header.php"?>
 
-<br/>
+    <div class="container-fluid">
+        <div class="row h-100">
+            <div class="col-6 bg-success">
 
-<div class="container-fluid  h-100 w-100">
-      <div class="row h-100">
-            <div class="col-6 col-sm-6 col-xs-6 col-md-6 col-lg-6 bg-success ">
-                  <img class="img-fluid" src="../mon_site/Image/undraw_secure_login_pdn4.png" alt="Image Login">
             </div>
-            <div class="col-6 col-sm-6 col-xs-6 col-md-6 col-lg-6  py-5">
-                <!--registre de connexion-->
-                    <div class="row ">
+            <div class="col-6">
+                        <!--registre de connexion-->
+                    <div class="row">
                 <div class="col-sm-12 col-xs-12 col-md-12 col-lg-12  ">
                                     <!-- Material form login -->
                                     <div class="card w-100 " >
@@ -138,8 +138,9 @@ $panier = new panier($connexion_produit); //new panier objet
                 </div>
                 <!--registre de connexion-->
             </div>
-      </div>
-</div>
+        </div>
+    </div>
+
 
       <!--Jerry CDN-->
       <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -161,4 +162,5 @@ $panier = new panier($connexion_produit); //new panier objet
       <!-- MDB jquery -->
 
 </body>
+
 </html>

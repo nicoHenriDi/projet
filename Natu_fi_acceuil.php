@@ -58,37 +58,44 @@ $panier = new panier($connexion_produit); //new panier objet
         <!--banner-->
 
           <div class="banner">
-                  <div class="container-fluid w-100 h-75">
+                  <div class="container-fluid w-100 h-100">
                         <div class="row w-100 h-100 ">
                           <div id="title-site" class="col-4 col-md-4 col-sm-4 col-lg-4 col-xl-4 h-100  align-self-center" data-aos="fade-right" data-aos-duration="3000">
                               <div class="circle"></div>
-                              <div class="text-banner">
-                                  <h1  class="card-title my-4 py-2   display-1" ><i><b>Natu'fi</b></i></h1>
-                                  <h1 class=""><i><b>Des Fruits frais</b></i> </br> <i><b>sans sortir de chez vous</b></i></h1>
+
+                              <div class="row">
+                                    <div class="col-12 col-md-12 col-sm-12 col-lg-12 col-xl-12 h-100">
+                                      <div class="text-banner ">
+                                          
+                                                <h1  class="card-title my-4 py-2   display-1" ><i><b>Natu'fi</b></i></h1>
+                                                <h1 class=""><i><b>Des Fruits frais</b></i> </br> <i><b>sans sortir de chez vous</b></i></h1>
+                                                <div class="bouton_class">
+                                                    <a class="btn bg-success text-white" href="Administration.php">
+                                                  <i class="fas fa-user px-md-2"></i>Connexion</a>
+                                                  <a class="btn bg-primary text-white" href="Magasin.php">
+                                                  <i class="fas fa-store-alt"></i> voir le Magasin</a>
+                                                </div>
+                                      </div>
+                                  </div>
                               </div>
-                              <a class="btn bg-success text-white" href="Administration.php">
-                                <i class="fas fa-user px-md-2"></i>Connexion</a>
-                                <a class="btn bg-primary text-white" href="Magasin.php">
-                                <i class="fas fa-store-alt"></i> voir le Magasin</a>
                           </div>
-                          <div class="col-8 col-md-8 col-sm-8 col-lg-8 col-xl-8 align-middle">
-                              <div class="row w-100 h-100 ">
-                                    <div class="col col-md col-sm col-lg col-xl align-self-end" data-aos="fade-left"data-aos-duration="1000">
+                          <div class="col-8 col-md-8 col-sm-8 col-lg-8 col-xl-8 h-75 align-middle">
+                              <div class="row  w-100 h-100 ">
+                                    <div class="col-4 col-md-4 col-sm-4 col-lg-4 col-xl-4 align-self-end" data-aos="fade-left"data-aos-duration="1000">
                                       <img class="Ananas img-fluid " src="../mon_site/Image/ananas.png" />
                                     </div>
-                                    <div class="col col-md col-sm col-lg col-xl align-self-center" data-aos="fade-left" data-aos-duration="2000">
+                                    <div class="col-4 col-md-4 col-sm-4 col-lg-4 col-xl-4 align-self-center" data-aos="fade-left" data-aos-duration="2000">
                                       <img  class="Fraise img-fluid " src="../mon_site/Image/fraise.png" />
                                     </div>
-                                    <div class="col col-md col-sm col-lg col-xl align-self-start" data-aos="fade-left" data-aos-duration="3000">
+                                    <div class="col-4 col-md-4 col-sm-4 col-lg-4 col-xl-4 align-self-start" data-aos="fade-left" data-aos-duration="3000">
                                       <img  class="Avocat img-fluid " src="../mon_site/Image/avocat.png" />
                                     </div>
-                              </div>        
+                              </div>  
+                              <h2 class="h5 font-italic text-white text-center" data-aos="fade-up"
+                            data-aos-anchor-placement="center-bottom" data-aos-duration="3000">
+                            <i class="fas fa-store-alt"></i>Le Marché autrement</h2>      
                           </div>
                     </div>
-                    </br>
-                    <h2 class="h5 font-italic text-white text-center" data-aos="fade-up"
-                            data-aos-anchor-placement="center-bottom" data-aos-duration="3000">
-                            <i class="fas fa-store-alt"></i>Le Marché autrement</h2>
                   </div>
           </div>
 
@@ -139,8 +146,11 @@ $panier = new panier($connexion_produit); //new panier objet
                                                                   <!--prix produit-->  <h4><i><strong><?php echo(number_format($données["prix"],2)." "."FCFA");?></strong></i></h4>
                                                                     <div class="d-flex justify-content-between align-items-center">
                                                                       <!--bouton ajout au panier-->
-                                                                      <div class="btn-group">
-                                                                      <a class="addPanier" href="ajout_panier.php?id=<?php echo($données["id"])?>"><button class="btn bg-success text-white btn-sm">Ajouter au panier</button></a>
+                                                                      <div class="btn-group ">
+                                                                          <button class="btn bg-success text-white bouton_ajout" value="<?php echo($données["id"])?>" > 
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"></path><path fill="currentColor" d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z"></path></svg>
+                                                                            <span>Add</span>
+                                                                          </button>
                                                                       </div>
                                                                       <!--bouton ajout au panier-->
                                                                     </div>
@@ -323,7 +333,7 @@ $panier = new panier($connexion_produit); //new panier objet
 <!--Jerry CDN-->
 
           <!--my javascript-->
-    <script type="text/javascript" src="../mon_site/Natu_fi.js"></script>
+    <script type="text/javascript" src="../mon_site/js/Natu_fi.js"></script>
           <!--my javascript-->
 
 <!--Bootstrap jquery-->

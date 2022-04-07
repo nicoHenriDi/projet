@@ -45,59 +45,56 @@ $panier = new panier($connexion_produit); //new panier objet
  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <!--Bootstrap Design-->
 
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+
+
 </head>
 <body style="background: rgb(246, 244, 244);">
 
-<?php include "header.php"?>
+<section><?php include "header.php"?></section>
 
+<section>
 <br/>
 <br/>
-<div class="conteneur">
+<div class="conteneur magasin">
     <div id="conteneur-principale" class="container-fluid w-100 h-100" >
         <div class="row">
-            <div class="conteneur-secondaire col-3 col-md-3">
-                <h5 id="Famille" class="">Quelques Familles de fruit</h5>
-                <!--Faire de nouveaux enregistrement dans la base de données avec un champs en plus famille de fruit -->
-                    <ul>
+            <div class="conteneur-secondaire col-3 col-md-3 ">
 
-                          <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                            <label class="form-check-label" for="defaultCheck1">
-                            Fruits à Noyau
-                            </label>
+                <!-- Filtre par Famille-->
+                    <div class="list-group">
+                          <h5 id="Famille" class="text-center">Filtre par Familles de fruit</h5>
+                              <?php
+                                $sql ="SELECT DISTINCT Famille FROM produits ORDER BY Famille DESC ";
+                                $req = $connexion_produit->prepare($sql);
+                                $req->execute();
+
+                                while($data = $req->fetch()){
+                                  ?>
+                                      <div class="form-check filtre">
+                                      <input class="form-check-input filtre_checkbox" type="checkbox" value="<?= $data["Famille"]?>" id="checkbox_filtre">
+                                      <label class="form-check-label" for="checkbox_filtre">
+                                              <?= $data["Famille"]?>
+                                      </label>
+                                      </div>
+
+                                <?php
+                                }
+                            ?>
+                    </div>
+                <!-- Filtre par Famille-->
+
+                    <!--Price filtre-->
+                          <div class="list-group">
+                                      <h5 class="form-check-label text-center" > Prix</h5>
+                                      <input type="hidden" id="hidden_minimum_prix" value="1000"/>
+                                      <input type="hidden" id="hidden_maximum_prix" value="10000"/>
+                                      <div id="prix_range"></div>
+                                      <p id="interval_prix">1000 - 10000</p>
+                                      
                           </div>
-                          <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                            <label class="form-check-label" for="defaultCheck1">
-                            Fruits à Pépin
-                            </label>
-                          </div>
-                          <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                            <label class="form-check-label" for="defaultCheck1">
-                            Baies et Fruits
-                            </label>
-                          </div>
-                          <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                            <label class="form-check-label" for="defaultCheck1">
-                            Agrumes
-                            </label>
-                          </div>
-                          <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                            <label class="form-check-label" for="defaultCheck1">
-                            Fruits à Coque
-                            </label>
-                          </div>
-                          <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                            <label class="form-check-label" for="defaultCheck1">
-                            Fruits Exotiques
-                            </label>
-                          </div>
-                          
-                    </ul>
+                    <!--Price filtre-->
+                  
             </div>
 
             <div class="conteneur-tertiaire col-9 col-md-9  h-100">
@@ -105,7 +102,7 @@ $panier = new panier($connexion_produit); //new panier objet
               <div class="row">
                   <div class="col-6 col-md-6 h-25">
                   </div>
-                  <div class="col-6 col-md-6 text-end">
+                  <div class="col-6 col-md-6 text-end recherche">
                                     <!--Barre de recherche-->
                                       <form class="d-flex input-group m-5 w-75">
                                         <input
@@ -120,81 +117,57 @@ $panier = new panier($connexion_produit); //new panier objet
                                         <Button class="input-group-text border-0 btn-outline-success" id="search-addon">
                                           <i class="fas fa-search"></i>
                                         </Button>
-                                        <div style="margin-top:20px">
-                                              <div id="result-research"></div>
-                                        </div>
                                       </form>
                                   <!--Barre de recherche-->
                   </div>
               </div>
-                                 <!-- Grille des produits-->
-                          <div class="grille_image"> 
-                              <div class="container-fluid ">
-                                <div class="row row-cols-3 g-2">
-                                <?php
-                                  $reponse=$connexion_produit->query("SELECT * FROM produits");
-                                  while($données=$reponse->fetch()){
-                                ?>
-                                  <div class="col-sm-2 col-xs-2 col-md-2 col-lg-3 py-2 h-100 p-3 ">
-                                        <div class="single_produit py-8 bg-white " >
-                                                                        <!--lien vers detail produit--> <a class="ripple" href="Info_produit.php?id=<?php echo($données["id"])?>">
-                                                                          <!--image produit--><img src="Image/<?php echo($données["image_produit"]) ;?>" class="card-img-top img-fluid" alt="<?php echo($données["nom_produit"]);?>" > </a>
-                                                    <div class="card-body">
-                                                            
-                                                        <!--Nom produit-->   <h4><i><strong><?php echo($données["nom_produit"]);?></strong></i></h4>
-                                                          <!--prix produit-->  <h4><i><strong><?php echo(number_format($données["prix"],2)." "."FCFA");?></strong></i></h4>
-                                                            <div class="d-flex justify-content-between align-items-center">
-                                                              <!--bouton ajout au panier-->
-                                                              <div class="btn-group">
-                                                              <a class="addPanier" href="ajout_panier.php?id=<?php echo($données["id"])?>"><button class="btn bg-success text-white btn-sm">Ajouter au panier</button></a>
-                                                              </div>
-                                                              <!--bouton ajout au panier-->
-                                                            </div>
-                                        </div>
-                                        <!-- Begin Footer card-->
-                                            <div class="card-footer text-muted text-center">
-                                              <?php
-                                                          $date =Datetime::createFromFormat("Y-m-d H:i:s",$données["Date_Enregistrement"])->format("Y-m-d");// defini la date strval permet de convertir n'importe quelle type de variable en chaine
-                                                          $aujourdhui = Date("Y-m-d");
-                                                          $nbr_jours = Nbre_Jour($date,$aujourdhui);
-                                                if($nbr_jours>0){
-                                                  echo" depuis"." ".$nbr_jours." "."jours"; //$nbr_jours vient de la fonction Nbre_jour dans compte_rebours_misàjour.php
-                                                }
-                                                else{
-                                                  echo"Maintenant"; //$nbr_jours vient de la fonction Nbre_jour dans compte_rebours_misàjour.php
-                                                }
-                                                
-                                              ?>
-                                            </div>
-                                        <!--End Footer card-->
-                                        </div>
-                                    </div>
-                                    <?php
-                                    }
-                                    ?>
-                                </div>
-                              </div>
-                          </div>
 
+                                <!-- Affichage des produits Aprés filtrage -->
+
+                                        <div class="row filtre_data">
+                                                      <!--Affichage produit with ajax ne rien mettre ici-->
+                                        </div>
+                                        
+                                </div>
+
+
+                                <!--Affichage des produits Aprés filtrage-->
+
+
+                                 <!-- Grille des produits-->
+                    
+                          
                           <!-- Grille des produits-->
             </div>
         </div>
     </div>
 </div>
 
-<?php include "footer.php" ?> <!--Footer-->
+</section>
 
-<!--Jerry CDN-->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<!--Jerry CDN-->
+<section><?php include "footer.php" ?> <!--Footer--></section>
+
+
+
+<!--Jquerry CDN-->
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+      <!--Jquerry UI--><script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+<!--Jquerry CDN-->
+
 
           <!--my javascript-->
-    <script type="text/javascript" src="../mon_site/js/Magasin.js"></script>
+          <script type="text/javascript" src="../mon_site/js/Magasin.js"></script>
           <!--my javascript-->
+
 
 <!--Bootstrap jquery-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <!--Bootstrap jquery-->
+
+
+
+
+
 
 <!-- MDB jquery -->
 <script
@@ -208,9 +181,7 @@ $panier = new panier($connexion_produit); //new panier objet
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <!--AOS js-->
 
-<!--Ajax-->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<!--Ajax-->
+
 
 </body>
 </html>

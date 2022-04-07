@@ -1,7 +1,7 @@
 <?php 
 session_start();
-include "connexion_base_de_données.php";
-include("panier_class.php");//inclusion page panie_class
+include "../connexion_base_de_données.php";
+include("../panier_class.php");//inclusion page panie_class
 $panier = new panier($connexion_produit); //new panier objet
 ?>
 <!Doctype html>
@@ -35,21 +35,21 @@ $panier = new panier($connexion_produit); //new panier objet
   <!--Bootstrap Design-->
 
 <!-- My design-->
- <link rel="stylesheet" href="../mon_site/CSS/Administration.css">
+ <link rel="stylesheet" href="../CSS/Administration.css">
  <!--My design -->
 
 
 
 </head>
 <body>
-<?php include "header.php"?>
+<?php include "../header.php"?>
 
 <br/>
 
 <div class="container-fluid  h-100 w-100">
       <div class="row h-100">
             <div class="col-6 col-sm-6 col-xs-6 col-md-6 col-lg-6 bg-success ">
-                  <img class="img-fluid" src="../mon_site/Image/undraw_secure_login_pdn4.png" alt="Image Login">
+                  <img class="img-fluid" src="../Image/undraw_secure_login_pdn4.png" alt="Image Login">
             </div>
             <div class="col-6 col-sm-6 col-xs-6 col-md-6 col-lg-6  py-5">
                 <!--registre de connexion-->
@@ -146,7 +146,7 @@ $panier = new panier($connexion_produit); //new panier objet
       <!--Jerry CDN-->
 
       <!--my javascript-->
-      <script type="text/javascript" src="../mon_site/js/Administration.js"></script>
+      <script type="text/javascript" src="../js/Administration.js"></script>
                 <!--my javascript-->
 
       <!--Bootstrap jquery-->

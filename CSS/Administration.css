@@ -1,0 +1,36 @@
+html, body {
+    height:100%;
+}
+body {
+  margin: 0;
+}
+
+.container-fluid {
+    height: 100%;
+}
+
+.row {
+  height: 100%; 
+}
+
+
+.col-md-6 {
+    float:left;
+    width: 50%;
+    min-height: 100%;
+  }
+  .col-sm-6{
+      float:left;
+      width: 50%;
+      min-height: 100%;
+  }
+  .col-lg-6{
+      float:left;
+      width: 50%;
+      min-height: 100%;
+  }
+  .col-xl-6{
+      float:left;
+      width: 50%;
+      min-height: 100%;
+  } 

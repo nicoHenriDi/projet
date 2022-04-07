@@ -1,5 +1,4 @@
 <?php 
-
 class panier{
 
     private $connexion_produit;
@@ -52,3 +51,4 @@ class panier{
 
 
 ?>
+
