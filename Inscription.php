@@ -1,4 +1,9 @@
-
+<?php 
+session_start();
+include "connexion_base_de_données.php";
+include("panier_class.php");//inclusion page panie_class
+$panier = new panier($connexion_produit); //new panier objet
+?>
 <!Doctype html>
 <html lang="eng">
 
@@ -10,161 +15,165 @@
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-<!-- Font Awesome -->
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-<!-- Google Fonts -->
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
-<!-- Bootstrap core CSS -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
-<!-- Material Design Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.0/css/mdb.min.css" rel="stylesheet">
+ <!-- Font Awesome -->
+ <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- MDB -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.2/mdb.min.css"
+      rel="stylesheet"
+    />
+ <!--MBD design-->
+
+ <!--Bootstrap Design-->
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <!--Bootstrap Design-->
 <!-- My design-->
  <link rel="stylesheet" href="Inscription.css">
  <!--My design -->
 
 
- <!-- JQuery -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<!-- Bootstrap tooltips -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
-<!-- Bootstrap core JavaScript -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
-<!-- MDB core JavaScript -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.0/js/mdb.min.js"></script>
-
-<script type="text/javascript" src="body_site\mon_site\js\Natu_fi.js"></script>
-
 </head>
 
 <body>
-    <?php include "header.php"?>
+    <?php include "header.php" ?>
     
 
+<section class="p-5 h-100">
+  <div class="container-fluid w-100 h-100 p-3">
+    <div class="row justify-content-center h-100 p-3">
+    <div class="col-12 col-sm-12 col-xs-12 col-md-12 col-lg-6 d-flex ">
 
-<div class="col-sm-12 col-xs-12 col-md-12 col-lg-12 px-5 ">
-
-                <!-- Card conteneur -->
-                <div class="card w-50 mx-auto" style="position:relative; margin-top:60px;">
-
-
-                        <!-- Card_header -->
-                        <h5 class="card-header success-color white-text text-center py-4 mx-lg-5">
-                            <strong>Inscription</strong>
-                        </h5>
-                        <!-- Card_header -->
+<!-- Card conteneur -->
+<div class="card w-100">
 
 
+        <!-- Card_header -->
+        <div class="card-header bg-white m-0">
+            <h5 class="text-center ">
+                <strong>Inscription</strong>
+            </h5>
+            <?php
+                  if(isset($_SESSION["Inscription-Error"]) AND !empty($_SESSION["Inscription-Error"])){
+            ?>
+                    <p class="text-muted text-center m-1"><?=$_SESSION["Inscription-Error"]?></p>
+              <?php
+                  }
+                  else{
+                    echo("<p class='text-muted text-center m-1'>Entrez vos informations</p>");
+                  }
+            ?>
+        </div>
+        <!-- Card_header -->
 
-                            <!--Card content-->
-                            <div class="card-body ">
 
-                                    <!--Début Formulaire d'inscription -->
-                                        <div class="formulaire">
-                                                <form method="POST" action="Vérification_enr.php" enctype="multipart/form-data">
-                                                <!-- 2 column grid layout with text inputs for the first and last names -->
-                                                <div class="row mb-4">
-                                                    <div class="col">
-                                                    <div class="form-outline">
-                                                        <input type="text"  class="form-control" name="Prénom_client" />
-                                                        <label class="form-label" for="Prénom_client">Prénom</label>
-                                                    </div>
-                                                    </div>
-                                                    <div class="col">
-                                                    <div class="form-outline">
-                                                        <input type="text"  class="form-control" name="Nom_client"/>
-                                                        <label class="form-label" for="Nom_client">Nom</label>
-                                                    </div>
-                                                    </div>
-                                                </div>
 
-                                                <!-- Email input -->
-                                                <div class="form-outline mb-4">
-                                                    <input type="email"  class="form-control" name="Email_client"/>
-                                                    <label class="form-label" for="Email_client">Email</label>
-                                                </div>
+            <!--Card content-->
+            <div class="card-body m-0">
 
-                                                <!-- Password input -->
-                                                <div class="form-outline mb-4">
-                                                    <input type="password"  class="form-control"  name="Password_client"/>
-                                                    <label class="form-label" for="Password_client">Mot de passe</label>
-                                                </div>
-
-                                                <!-- Submit button -->
-                                                <button type="submit" class="btn btn-success btn-block mb-4" name="submit_inscript">Inscription</button>
-
-                                                <!-- Register buttons -->
-                                                <div class="text-center">
-                                                    <p>Ou Connectez Vous avec :</p>
-                                                    <button type="button" class="btn btn-success btn-floating mx-1">
-                                                    <i class="fab fa-facebook-f"></i>
-                                                    </button>
-
-                                                    <button type="button" class="btn btn-success btn-floating mx-1">
-                                                    <i class="fab fa-google"></i>
-                                                    </button>
-
-                                                    <button type="button" class="btn btn-success btn-floating mx-1">
-                                                    <i class="fab fa-twitter"></i>
-                                                    </button>
-
-                                                    <button type="button" class="btn btn-success btn-floating mx-1">
-                                                    <i class="fab fa-github"></i>
-                                                    </button>
-                                                </div>
-                            
-                                                </form>
-                                            </div>
-                                    <!--Fin Formulaire d'inscription -->
+                    <!--Début Formulaire d'inscription -->
+                                <form method="POST" action="connexion_user.php">
+                                <!-- 2 column grid layout with text inputs for the first and last names -->
+                                <div class="row">
+                                    <div class="col">
+                                    <div class="md-form p-1 m-0">
+                                        <label class="form-label m-0 " for="PrénomClient">Prénom</label>
+                                        <input type="text"  class="form-control" name="PrénomClient" />
+                                    </div>
+                                    </div>
+                                    <div class="col">
+                                    <div class="md-form p-1 m-0">
+                                        <label class="form-label m-0" for="NomClient">Nom</label>
+                                        <input type="text"  class="form-control" name="NomClient"/>
+                                    </div>
+                                    </div>
                                 </div>
+
+                                <!-- Email input -->
+                                <div class="md-form p-1 m-0">
+                                    <label class="form-label m-0" for="EmailClient">Email</label>
+                                    <input type="email"  class="form-control" name="EmailClient" required/>
+                                </div>
+
+                                <!-- Password input -->
+                                <div class="md-form p-1 m-0">
+                                    <label class="form-label m-0" for="PasswordClient">Mot de passe</label>
+                                    <input type="password"  class="form-control PasswordClient"  name="PasswordClient"  required/>
+                                </div>
+
+                                 <!-- New Password input -->
+                                 <div class="md-form p-1 m-0">
+                                    <label class="form-label m-0" for="NewPasswordClient">Nouveau Mot de passe</label>
+                                    <input type="password"  class="form-control NewPasswordClient"  name="NewPasswordClient" required/>
+                                </div>
+
+                                <!--Affichage message confirmation-->
+                                <div class="Confirm"><span class='error text-danger m-0'></span></div>
+
+                                <!-- Submit button -->
+                                <button type="submit" class="btn btn-ultra-voilet btn-block m-1 waves-effect z-depth-0" name="submit_inscript">Inscription</button>
+
+                                <!-- Register buttons -->
+                                    
+                                    <p class="text-center m-1">J'ai déja un compte
+                                                      <a href="Login/Login.php">Connexion</a>
+                                                    </p>
+
+                                      <p class="text-center m-1">Ou Connectez Vous avec :</p>
+                                    
+                                    <div class="col-12 col-sm-12 col-xs-12 col-md-12 col-lg-12 text-center m-0">
+                                                        <a type="button" class="btn-floating btn-fb btn-lg m-0">
+                                                          <i class="fab fa-facebook-f m-0"></i>
+                                                        </a>
+                                                        <a type="button" class="btn-floating btn-tw btn-lg m-0">
+                                                          <i class="fab fa-twitter m-0"></i>
+                                                        </a>
+                                                        <a type="button" class="btn-floating btn-li btn-lg m-0">
+                                                          <i class="fab fa-linkedin-in m-0"></i>
+                                                        </a>
+                                                        <a type="button" class="btn-floating btn-git btn-lg m-0">
+                                                          <i class="fab fa-github m-0"></i>
+                                                        </a>
+                                        </div>
+            
+                                </form>
+                    <!--Fin Formulaire d'inscription -->
                 </div>
-                        
-                <!-- card conteneur -->
+</div>
+        
+<!-- card conteneur -->
 
 </div>
-          <!-- Icone-->
-
-  <div class="container">
-  <hr class="separateur"/>
-    <div class="row">
-      <div class="col-sm-3 col-xs-3 col-md-3 col-lg-3">
-        <div class="icone_single text-center">
-        <i class="fas  fa-cart-plus fa-3x"></i>
-        </div>
-        <div class="texte text-center">
-        <small>ajouter vos produits en toute simplicité </small>
-        </div>
-      </div>
-      <div class="col-sm-3 col-xs-3 col-md-3 col-lg-3">
-        <div class="icone_single text-center">
-        <i class="fas fa-truck fa-3x"></i>
-        </div>
-        <div class="texte text-center">
-        <small>Un service de livraison rapide et fiable</small>
-        </div>
-      </div>
-      <div class="col-sm-3 col-xs-3 col-md-3 col-lg-3">
-        <div class="icone_single text-center">
-        <i class="fas fa-lock fa-3x"></i>
-        </div>
-        <div class="texte text-center">
-        <small>Des modes de payant divers et sécurisés  </small>
-        </div>
-      </div>
-      <div class="col-sm-3 col-xs-3 col-md-3 col-lg-3">
-        <div class="icone_single text-center">
-        <i class="fas fa-headset fa-3x"></i>
-        </div>
-        <div class="texte text-center">
-        <small>Un service client disponible 24/24 et 7/7</small>
-        </div>
-      </div>
     </div>
   </div>
-<!--end Icone-->
+</section>
 
 
+      <!--Jerry CDN-->
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+      <!--Jerry CDN-->
 
-    <?php include "footer.php"?>
+      <!--My Js-->
+                <script src="../mon_site/js/Inscription.js"></script>
+      <!--My Js-->
+
+ <!--Bootstrap jquery-->
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+      <!--Bootstrap jquery-->
+
+      <!-- MDB jquery -->
+      <script
+        type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.2/mdb.min.js"
+      ></script>
+      <!-- MDB jquery -->
 </body>
 
 </html>

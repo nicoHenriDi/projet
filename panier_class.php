@@ -1,5 +1,4 @@
 <?php 
-
 class panier{
 
     private $connexion_produit;
@@ -15,7 +14,7 @@ class panier{
         $this->connexion_produit =$connexion_produit;
     }
 
-    //function d'ajout au panier et vérification quantité produit
+    //fonction d'ajout au panier et vérification quantité produit
     public function ajout_panier($produit_id){
 
         if(isset($_SESSION["panier"][$produit_id])){
@@ -52,3 +51,4 @@ class panier{
 
 
 ?>
+

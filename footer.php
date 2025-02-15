@@ -1,5 +1,5 @@
 <!--footer page-->
-<footer class="bg-success">
+<footer class="" style="background: linear-gradient(to bottom, rgba(250, 114, 114,1), rgba(67, 67, 251, 1));">
   <div class="container">
     <div class="row">
       <div class="col text-center">
